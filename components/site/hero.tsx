@@ -49,7 +49,12 @@ export function Hero() {
           poster="/images/hero.png"
           className="absolute inset-0 z-0 h-full w-full object-cover"
         >
-          <source src="/images/videos/Hero.mp4" type="video/mp4" />
+          <source
+            src="/images/videos/mobile-Hero-compressed.mp4"
+            media="(max-width: 640px)"
+            type="video/mp4"
+          />
+          <source src="/images/videos/Hero-compressed.mp4" type="video/mp4" />
         </video>
       )}
 
@@ -113,9 +118,41 @@ export function Hero() {
             </a>
           </motion.div>
 
+          <motion.dl
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.32, ease }}
+            className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-white/25 pt-6"
+          >
+            {[
+              { v: '1,200+', l: t.hero.stat1 },
+              { v: '12', l: t.hero.stat2 },
+              { v: '4.9★', l: t.hero.stat3 },
+            ].map((s) => (
+              <div key={s.l}>
+                <dt className="text-2xl font-extrabold text-primary">{s.v}</dt>
+                <dd className="mt-1 text-xs font-medium leading-snug text-white/72">
+                  {s.l}
+                </dd>
+              </div>
+            ))}
+          </motion.dl>
 
-
-
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.9, ease }}
+            className="mt-9 inline-flex items-center gap-3 rounded-2xl border border-white/25 bg-white/15 p-4 text-white shadow-xl backdrop-blur"
+          >
+            <div className="flex -space-x-1 text-primary">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="size-4 fill-current" />
+              ))}
+            </div>
+            <p className="text-sm font-semibold">
+              4.9/5 <span className="font-normal text-white/72">· 300+ reviews</span>
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

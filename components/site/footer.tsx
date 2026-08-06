@@ -2,7 +2,14 @@
 
 import type { SVGProps } from 'react'
 import { useLanguage } from '@/lib/i18n'
-import { BUSINESS_EMAIL, BUSINESS_PHONE, BUSINESS_PHONE_DISPLAY } from '@/lib/seo'
+import {
+  BUSINESS_EMAIL,
+  BUSINESS_HOURS,
+  BUSINESS_MAP_URL,
+  BUSINESS_PHONE,
+  BUSINESS_PHONE_DISPLAY,
+  BUSINESS_SERVICE_AREA_LABEL,
+} from '@/lib/seo'
 import { Logo } from './logo'
 
 function FacebookIcon(props: SVGProps<SVGSVGElement>) {
@@ -140,8 +147,12 @@ export function Footer() {
                   {BUSINESS_EMAIL}
                 </a>
               </li>
-              <li>Des Moines, Iowa</li>
-              <li>{t.contact.hours}</li>
+              <li>
+                <a href={BUSINESS_MAP_URL} className="hover:text-primary-foreground">
+                  {BUSINESS_SERVICE_AREA_LABEL}
+                </a>
+              </li>
+              <li>{BUSINESS_HOURS}</li>
             </ul>
           </div>
         </div>

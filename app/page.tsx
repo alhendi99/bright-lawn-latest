@@ -56,7 +56,6 @@ export default function Page() {
         <main>
           <Hero />
           <Services />
-          <Stats />
           <BeforeAfter />
           <Gallery />
           <Testimonials />

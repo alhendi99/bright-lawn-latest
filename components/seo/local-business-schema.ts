@@ -2,8 +2,10 @@ import {
   BUSINESS_CITY,
   BUSINESS_DESCRIPTION,
   BUSINESS_EMAIL,
+  BUSINESS_MAP_URL,
   BUSINESS_NAME,
   BUSINESS_PHONE,
+  BUSINESS_SERVICE_AREA_LABEL,
   BUSINESS_STATE,
   BUSINESS_STATE_CODE,
   SERVICES,
@@ -19,6 +21,7 @@ export const localBusinessJsonLd = {
   url: SITE_URL,
   telephone: BUSINESS_PHONE,
   email: BUSINESS_EMAIL,
+  hasMap: BUSINESS_MAP_URL,
   image: `${SITE_URL}/images/hero.png`,
   priceRange: '$$',
   serviceType: SERVICES,
@@ -28,16 +31,22 @@ export const localBusinessJsonLd = {
     addressRegion: BUSINESS_STATE_CODE,
     addressCountry: 'US',
   },
-  areaServed: {
-    '@type': 'City',
-    name: `${BUSINESS_CITY}, ${BUSINESS_STATE}`,
-  },
+  areaServed: [
+    {
+      '@type': 'City',
+      name: `${BUSINESS_CITY}, ${BUSINESS_STATE}`,
+    },
+    ...BUSINESS_SERVICE_AREA_LABEL.split(', ').map((city) => ({
+      '@type': 'City',
+      name: `${city}, ${BUSINESS_STATE}`,
+    })),
+  ],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '07:00',
-      closes: '18:00',
+      dayOfWeek: ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      opens: '21:00',
+      closes: '23:00',
     },
   ],
 }
@@ -53,4 +62,3 @@ export const websiteJsonLd = {
   },
   inLanguage: ['en-US', 'es-US'],
 }
-

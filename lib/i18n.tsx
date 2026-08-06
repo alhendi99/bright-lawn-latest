@@ -11,7 +11,15 @@ import {
 
 export type Language = 'en' | 'es'
 
-type Dictionary = typeof en
+type WidenStringValues<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+    ? readonly WidenStringValues<U>[]
+    : T extends object
+      ? { [K in keyof T]: WidenStringValues<T[K]> }
+      : T
+
+type Dictionary = WidenStringValues<typeof en>
 
 const en = {
   nav: {

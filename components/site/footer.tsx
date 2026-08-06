@@ -2,6 +2,7 @@
 
 import type { SVGProps } from 'react'
 import { useLanguage } from '@/lib/i18n'
+import { BUSINESS_EMAIL, BUSINESS_PHONE, BUSINESS_PHONE_DISPLAY } from '@/lib/seo'
 import { Logo } from './logo'
 
 function FacebookIcon(props: SVGProps<SVGSVGElement>) {
@@ -130,16 +131,16 @@ export function Footer() {
             </h3>
             <ul className="mt-4 flex flex-col gap-3 text-primary-foreground/80">
               <li>
-                <a href="tel:+15551234567" className="hover:text-primary-foreground">
-                  (555) 123-4567
+                <a href={`tel:${BUSINESS_PHONE}`} className="hover:text-primary-foreground">
+                  {BUSINESS_PHONE_DISPLAY}
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@brightlawn.com" className="hover:text-primary-foreground">
-                  hello@brightlawn.com
+                <a href={`mailto:${BUSINESS_EMAIL}`} className="hover:text-primary-foreground">
+                  {BUSINESS_EMAIL}
                 </a>
               </li>
-              <li>124 Greenway Ave, Springfield</li>
+              <li>Des Moines, Iowa</li>
               <li>{t.contact.hours}</li>
             </ul>
           </div>

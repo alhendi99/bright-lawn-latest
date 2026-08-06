@@ -104,9 +104,6 @@ export function BeforeAfter() {
               </button>
             </div>
           </div>
-          <p className="mt-4 text-center text-sm font-medium text-muted-foreground">
-            {t.beforeAfter.instruction}
-          </p>
         </Reveal>
       </div>
     </section>

@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { CheckCircle2, Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n'
+import { BUSINESS_EMAIL, BUSINESS_PHONE, BUSINESS_PHONE_DISPLAY } from '@/lib/seo'
 import { SectionHeading } from './section-heading'
 import { Reveal } from './reveal'
 
@@ -71,9 +72,9 @@ export function Contact() {
             <Reveal className="mt-8">
               <ul className="flex flex-col gap-4">
                 {[
-                  { icon: Phone, label: '(555) 123-4567', href: 'tel:+15551234567' },
-                  { icon: Mail, label: 'hello@brightlawn.com', href: 'mailto:hello@brightlawn.com' },
-                  { icon: MapPin, label: '124 Greenway Ave, Springfield', href: null },
+                  { icon: Phone, label: BUSINESS_PHONE_DISPLAY, href: `tel:${BUSINESS_PHONE}` },
+                  { icon: Mail, label: BUSINESS_EMAIL, href: `mailto:${BUSINESS_EMAIL}` },
+                  { icon: MapPin, label: 'Des Moines, Iowa', href: null },
                   { icon: Clock, label: t.contact.hours, href: null },
                 ].map(({ icon: Icon, label, href }) => (
                   <li key={label} className="flex items-center gap-3">
@@ -96,7 +97,7 @@ export function Contact() {
               <div className="overflow-hidden rounded-3xl border border-border shadow-sm">
                 <iframe
                   title={t.contact.mapTitle}
-                  src="https://www.google.com/maps?q=Springfield&output=embed"
+                  src="https://www.google.com/maps?q=Des%20Moines%2C%20Iowa&output=embed"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="h-64 w-full border-0 grayscale-[0.2]"

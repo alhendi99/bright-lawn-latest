@@ -56,7 +56,7 @@ export function BeforeAfter() {
           >
             {/* After (base layer) */}
             <Image
-              src="/images/after.png"
+              src="/images/after.jpeg"
               alt={`${t.beforeAfter.after}: a pristine manicured lawn`}
               fill
               sizes="(max-width: 1024px) 100vw, 1100px"
@@ -72,7 +72,7 @@ export function BeforeAfter() {
               style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
             >
               <Image
-                src="/images/before.png"
+                src="/images/before.jpeg"
                 alt={`${t.beforeAfter.before}: an overgrown neglected yard`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 1100px"

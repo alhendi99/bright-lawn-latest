@@ -15,10 +15,10 @@ const ICONS = {
 } as const
 
 const IMAGES: Record<string, string> = {
-  lawn: '/images/service-lawn.png',
+  lawn: '/images/lawn care/lawn care 11.jpeg',
   snow: '/images/service-snow.png',
   leaf: '/images/service-leaf.png',
-  yard: '/images/service-yard.png',
+  yard: '/images/yard cleaning/service-yard.jpeg',
   landscaping: '/images/service-landscaping.png',
 }
 

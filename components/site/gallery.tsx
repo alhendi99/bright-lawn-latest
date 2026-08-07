@@ -9,12 +9,17 @@ import { SectionHeading } from './section-heading'
 import { Reveal } from './reveal'
 
 const IMAGES = [
-  { src: '/images/gallery-1.png', ratio: 'aspect-[4/3]' },
-  { src: '/images/gallery-2.png', ratio: 'aspect-[3/4]' },
-  { src: '/images/gallery-3.png', ratio: 'aspect-[4/3]' },
-  { src: '/images/gallery-4.png', ratio: 'aspect-[3/4]' },
-  { src: '/images/gallery-5.png', ratio: 'aspect-[4/3]' },
-  { src: '/images/gallery-6.png', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-1.jpeg', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-2.jpeg', ratio: 'aspect-[3/4]' },
+  { src: '/images/gallery-3.jpeg', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-4.jpeg', ratio: 'aspect-[3/4]' },
+  { src: '/images/gallery-5.jpeg', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-6.jpeg', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-7.jpeg', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-8.jpeg', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-9.jpeg', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-10.jpeg', ratio: 'aspect-[4/3]' },
+  { src: '/images/gallery-11.jpeg', ratio: 'aspect-[4/3]' },
 ]
 
 export function Gallery() {

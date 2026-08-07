@@ -64,15 +64,28 @@ export function Contact() {
     register,
     handleSubmit,
     reset,
+    setError,
+    clearErrors,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: 'onBlur',
   })
 
-  const onSubmit = async (_data: FormValues) => {
-    // Simulate a network request; wire to a real endpoint / server action later.
-    await new Promise((r) => setTimeout(r, 900))
+  const onSubmit = async (data: FormValues) => {
+    clearErrors('root')
+
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+
+    if (!response.ok) {
+      setError('root', { message: t.contact.errors.submit })
+      return
+    }
+
     setSubmitted(true)
     reset()
   }
@@ -237,6 +250,12 @@ export function Contact() {
                       {...register('message')}
                     />
                   </Field>
+
+                  {errors.root?.message && (
+                    <p className="text-sm font-medium text-destructive" role="alert">
+                      {errors.root.message}
+                    </p>
+                  )}
 
                   <button
                     type="submit"

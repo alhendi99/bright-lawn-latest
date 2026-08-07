@@ -16,10 +16,10 @@ const ICONS = {
 
 const IMAGES: Record<string, string> = {
   lawn: '/images/lawn care/lawn care 11.jpeg',
-  snow: '/images/service-snow.png',
-  leaf: '/images/service-leaf.png',
+  snow: '/images/service-snow.webp',
+  leaf: '/images/service-leaf.webp',
   yard: '/images/yard cleaning/service-yard.jpeg',
-  landscaping: '/images/service-landscaping.png',
+  landscaping: '/images/service-landscaping.webp',
 }
 
 export function Services() {

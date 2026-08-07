@@ -1,16 +1,20 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Navbar } from '@/components/site/navbar'
 import { Hero } from '@/components/site/hero'
 import { Services } from '@/components/site/services'
-import { Stats } from '@/components/site/stats'
 import { BeforeAfter } from '@/components/site/before-after'
 import { Gallery } from '@/components/site/gallery'
 import { Testimonials } from '@/components/site/testimonials'
 import { Faq } from '@/components/site/faq'
-import { Contact } from '@/components/site/contact'
 import { Footer } from '@/components/site/footer'
-import { PageTransition } from '@/components/site/page-transition'
 import { BUSINESS_DESCRIPTION, OG_IMAGE, SEO_KEYWORDS, SITE_URL } from '@/lib/seo'
+
+const Contact = dynamic(() => import('@/components/site/contact').then((mod) => mod.Contact), {
+  loading: () => (
+    <section id="contact" className="scroll-mt-20 py-20 lg:py-28" aria-label="Contact" />
+  ),
+})
 
 export const metadata: Metadata = {
   title: 'Lawn Care Service in Des Moines, Iowa',
@@ -52,18 +56,16 @@ export default function Page() {
   return (
     <>
       <Navbar />
-      <PageTransition>
-        <main>
-          <Hero />
-          <Services />
-          <BeforeAfter />
-          <Gallery />
-          <Testimonials />
-          <Faq />
-          <Contact />
-        </main>
-        <Footer />
-      </PageTransition>
+      <main className="animate-page-in">
+        <Hero />
+        <Services />
+        <BeforeAfter />
+        <Gallery />
+        <Testimonials />
+        <Faq />
+        <Contact />
+      </main>
+      <Footer />
     </>
   )
 }

@@ -12,7 +12,6 @@ import {
 } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/json-ld'
 import { localBusinessJsonLd, websiteJsonLd } from '@/components/seo/local-business-schema'
-import { SmoothScrollProvider } from '@/components/smooth-scroll-provider'
 import './globals.css'
 
 const manrope = Manrope({
@@ -102,7 +101,7 @@ export default function RootLayout({
     <html lang="en" className={`${manrope.variable} bg-background`}>
       <body className="font-sans antialiased">
         <LanguageProvider>
-          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          {children}
         </LanguageProvider>
         <JsonLd data={localBusinessJsonLd} />
         <JsonLd data={websiteJsonLd} />

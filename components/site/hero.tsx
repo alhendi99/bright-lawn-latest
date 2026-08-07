@@ -50,11 +50,11 @@ export function Hero() {
           className="absolute inset-0 z-0 h-full w-full object-cover"
         >
           <source
-            src="/images/videos/mobile-Hero-compressed.mp4"
+            src="https://pub-acf6b2cc2dcb4403ab5f2feafb362365.r2.dev/Hero-mobile.mp4 "
             media="(max-width: 640px)"
             type="video/mp4"
           />
-          <source src="/images/videos/Hero-compressed.mp4" type="video/mp4" />
+          <source src="https://pub-acf6b2cc2dcb4403ab5f2feafb362365.r2.dev/Hero-final.mp4" type="video/mp4" />
         </video>
       )}
 

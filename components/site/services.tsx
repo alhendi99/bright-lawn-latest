@@ -41,6 +41,10 @@ export function Services() {
             const item = t.services.items[key]
             // Feature the first card across two columns on large screens.
             const featured = i === 0
+            const imageSizes = featured
+              ? '(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) calc(100vw - 3rem), 820px'
+              : '(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) calc(50vw - 2.5rem), 400px'
+
             return (
               <Reveal
                 key={key}
@@ -55,7 +59,7 @@ export function Services() {
                       src={IMAGES[key]}
                       alt={item.name}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes={imageSizes}
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <span className="absolute left-4 top-4 grid size-11 place-items-center rounded-xl bg-background/90 text-primary shadow-sm backdrop-blur">

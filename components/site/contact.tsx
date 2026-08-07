@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -17,9 +17,34 @@ import {
 import { SectionHeading } from './section-heading'
 import { Reveal } from './reveal'
 
+const MAP_EMBED_URL =
+  'https://www.google.com/maps?q=Ankeny%2C%20Waukee%2C%20Norwalk%2C%20Altoona%2C%20Iowa&output=embed'
+
 export function Contact() {
   const { t } = useLanguage()
   const [submitted, setSubmitted] = useState(false)
+  const [loadMap, setLoadMap] = useState(false)
+  const mapRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (loadMap) return
+
+    const map = mapRef.current
+    if (!map) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        setLoadMap(true)
+        observer.disconnect()
+      },
+      { rootMargin: '600px 0px' },
+    )
+
+    observer.observe(map)
+
+    return () => observer.disconnect()
+  }, [loadMap])
 
   const schema = useMemo(
     () =>
@@ -101,14 +126,26 @@ export function Contact() {
             </Reveal>
 
             <Reveal className="mt-8">
-              <div className="overflow-hidden rounded-3xl border border-border shadow-sm">
-                <iframe
-                  title={t.contact.mapTitle}
-                  src="https://www.google.com/maps?q=Ankeny%2C%20Waukee%2C%20Norwalk%2C%20Altoona%2C%20Iowa&output=embed"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="h-64 w-full border-0 grayscale-[0.2]"
-                />
+              <div
+                ref={mapRef}
+                className="h-64 overflow-hidden rounded-3xl border border-border bg-secondary shadow-sm"
+              >
+                {loadMap ? (
+                  <iframe
+                    title={t.contact.mapTitle}
+                    src={MAP_EMBED_URL}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="h-full w-full border-0 grayscale-[0.2]"
+                  />
+                ) : (
+                  <div
+                    aria-hidden="true"
+                    className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,var(--secondary),var(--accent))]"
+                  >
+                    <MapPin className="size-10 text-primary/60" />
+                  </div>
+                )}
               </div>
             </Reveal>
           </div>

@@ -8,6 +8,7 @@ import { Gallery } from '@/components/site/gallery'
 import { Testimonials } from '@/components/site/testimonials'
 import { Faq } from '@/components/site/faq'
 import { Footer } from '@/components/site/footer'
+import { PageTransition } from '@/components/site/page-transition'
 import { BUSINESS_DESCRIPTION, OG_IMAGE, SEO_KEYWORDS, SITE_URL } from '@/lib/seo'
 
 const Contact = dynamic(() => import('@/components/site/contact').then((mod) => mod.Contact), {
@@ -56,16 +57,18 @@ export default function Page() {
   return (
     <>
       <Navbar />
-      <main className="animate-page-in">
-        <Hero />
-        <Services />
-        <BeforeAfter />
-        <Gallery />
-        <Testimonials />
-        <Faq />
-        <Contact />
-      </main>
-      <Footer />
+      <PageTransition>
+        <main>
+          <Hero />
+          <Services />
+          <BeforeAfter />
+          <Gallery />
+          <Testimonials />
+          <Faq />
+          <Contact />
+        </main>
+        <Footer />
+      </PageTransition>
     </>
   )
 }

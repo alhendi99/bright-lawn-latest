@@ -100,6 +100,44 @@
 }
 
 @layer utilities {
+  @keyframes whatsapp-float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -0.35rem, 0);
+    }
+  }
+
+  @keyframes whatsapp-pulse {
+    0% {
+      opacity: 0.42;
+      transform: scale(1);
+    }
+    70%,
+    100% {
+      opacity: 0;
+      transform: scale(1.75);
+    }
+  }
+
+  .whatsapp-float {
+    animation: whatsapp-float 3s ease-in-out infinite;
+  }
+
+  .whatsapp-float:hover {
+    animation-play-state: paused;
+  }
+
+  .whatsapp-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: #25d366;
+    animation: whatsapp-pulse 2.4s ease-out infinite;
+  }
+
   .text-balance {
     text-wrap: balance;
   }

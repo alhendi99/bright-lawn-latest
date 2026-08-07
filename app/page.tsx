@@ -9,6 +9,7 @@ import { Testimonials } from '@/components/site/testimonials'
 import { Faq } from '@/components/site/faq'
 import { Footer } from '@/components/site/footer'
 import { PageTransition } from '@/components/site/page-transition'
+import { WhatsappButton } from '@/components/site/whatsapp-button'
 import { BUSINESS_DESCRIPTION, OG_IMAGE, SEO_KEYWORDS, SITE_URL } from '@/lib/seo'
 
 const Contact = dynamic(() => import('@/components/site/contact').then((mod) => mod.Contact), {
@@ -69,6 +70,7 @@ export default function Page() {
         </main>
         <Footer />
       </PageTransition>
+      <WhatsappButton />
     </>
   )
 }

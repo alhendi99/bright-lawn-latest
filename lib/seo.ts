@@ -5,7 +5,7 @@ export const BUSINESS_DESCRIPTION =
   'Bright Lawn provides lawn care, snow removal, leaf cleanup, yard cleanup, and landscaping services for homes and businesses in Des Moines, Ankeny, Waukee, Norwalk, and Altoona, Iowa.'
 export const BUSINESS_PHONE_DISPLAY = '(515) 491-3490'
 export const BUSINESS_PHONE = '+15154913490'
-export const BUSINESS_EMAIL = 'ahmadfaisalalhende@gmail.com'
+export const BUSINESS_EMAIL = 'bara.ganem19@gmail.com'
 export const BUSINESS_CITY = 'Des Moines'
 export const BUSINESS_STATE = 'Iowa'
 export const BUSINESS_STATE_CODE = 'IA'
